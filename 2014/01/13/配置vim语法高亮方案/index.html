@@ -3,13 +3,15 @@
 <head>
   <meta charset="utf-8">
   
-  <title>归档：2014 | Godric Cao&#39;s Blog</title>
+  <title>配置Vim语法高亮方案 | Godric Cao&#39;s Blog</title>
   <meta name="author" content="Godric Cao">
+  
+  <meta name="description" content="以Sublime&nbsp;Text作为文本编辑器时，发现monokai这个语法高亮的配色方案很赞，于是就想在vim中也使用monokai）。但是monokai无论如何都无法在Terminal中的vim上显示。于是发现了跟monokai配色风格接近的配色方案molokai.vim。一通搜索加捣鼓之后，总算能在Terminal中有一个赏心悦目的vim配色了。">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="配置Vim语法高亮方案"/>
   <meta property="og:site_name" content="Godric Cao&#39;s Blog"/>
 
   
@@ -194,12 +196,7 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title">2014</h2>
-
-
-  
-    <article class="post">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
   
     <div class="gallery">
   <div class="photoset">
@@ -221,7 +218,7 @@
       
       
   
-    <h1 class="title"><a href="/2014/01/13/配置vim语法高亮方案/">配置Vim语法高亮方案</a></h1>
+    <h1 class="title">配置Vim语法高亮方案</h1>
   
 
     </header>
@@ -229,17 +226,69 @@
       
         <p>以Sublime&nbsp;Text作为文本编辑器时，发现monokai这个语法高亮的配色方案很赞，于是就想在vim中也使用<a href="https://github.com/lsdr/monokai" target="_blank">monokai</a>）。<br>但是monokai无论如何都无法在Terminal中的vim上显示。于是发现了跟monokai配色风格接近的配色方案<a href="https://github.com/tomasr/molokai" target="_blank">molokai.vim</a>。一通搜索加捣鼓之后，总算能在Terminal中有一个赏心悦目的vim配色了。    </p>
 <p><img src="https://github-camo.global.ssl.fastly.net/47bf6f7773c282e9607fc692e3a0948ee9363b6e/687474703a2f2f7777772e77696e746572646f6d2e636f6d2f7765626c6f672f636f6e74656e742f62696e6172792f57696e646f77734c6976655772697465722f4d6f6c6f6b6169666f7256696d5f383630322f6d6f6c6f6b61695f6e6f726d616c5f736d616c6c5f332e706e67" alt="molokai1">    </p>
+<a id="more"></a>
+
+<p><img src="https://github-camo.global.ssl.fastly.net/6b1c96e698a3e80db6aebd87533dcca85329a4d2/687474703a2f2f7777772e77696e746572646f6d2e636f6d2f7765626c6f672f636f6e74656e742f62696e6172792f57696e646f77734c6976655772697465722f4d6f6c6f6b6169666f7256696d5f383630322f6d6f6c6f6b61695f6f726967696e616c5f736d616c6c5f332e706e67" alt="molokai2"></p>
+<p>假定你已经安装了vim，以下是在ubuntu中使用molokai配色方案的步骤：</p>
+<ul>
+<li>部署molokai.vim文件     </li>
+</ul>
+<p>从<a href="https://github.com/lsdr/monokai" target="_blank">这里</a>下载molokai.vim配色文件，并执行:</p>
+<pre><code>$ cp molokai.vim /usr/share/vim/vim72/colors
+</code></pre><p>注意，路径中的vim72可能是vim73、vim74等。 </p>
+<ul>
+<li>.vimrc配置文件的设置    </li>
+</ul>
+<p>编辑.vimrc:</p>
+<pre><code>$ vim ~/.vimrc
+</code></pre><p>如果~目录下没有.vimrc，则执行以下命令:</p>
+<pre><code>$ cp /usr/share/vim/vimrc ~/.vimrc
+</code></pre><p>在打开的.vimrc中添加如下代码：</p>
+<pre><code>set t_CO=256 &quot; 该命令使vim把终端的色彩识别为256色。
+set background=dark
+colorscheme molokai
+</code></pre><ul>
+<li>Terminal颜色模式调整    </li>
+</ul>
+<p>在使用ubuntu的一些版本时（例如最新的13.10），当设置配色方案为molokai，却只以默认的配色方案ron来显示（很难看有木有）。这是可能因为终端的色深为8位，不支持256色显示。此时需要安装ncurses-term工具使Terminal支持256色。  </p>
+<p>首先，测试终端色彩：</p>
+<pre><code>$ tput colors
+</code></pre><p>如果结果是8，则说明终端是8位色深。<br>执行以下命令安装ncurses-term：</p>
+<pre><code>$ sudo apt-get install ncurses-term
+</code></pre><p>然后编辑~/.bashrc，例如用vim:</p>
+<pre><code>$ vim ~/.bashrc
+</code></pre><p>在.bashrc末尾加上下面这一行：</p>
+<pre><code>export TERM=xterm-256color
+</code></pre><p>保存修改后，执行以下命令使Bash重新加载配置文件：</p>
+<pre><code>$ source ~/.bashrc
+</code></pre><p>现在测试终端色彩，它应该会显示256色的结果：</p>
+<pre><code>$ tput colors
+256
+</code></pre><p>好了，现在在运行</p>
+<pre><code>$ vim ~/.vimrc
+</code></pre><p>看一下molokai是个什么样子吧！</p>
+<hr>
+<p>参考链接 <a href="http://whiletruecode.tumblr.com/post/13358288098/enabling-256-color-mode-in-ubuntus-bash-terminal" target="_blank">Enabling 256 color mode in Ubuntu’s Bash terminal</a></p>
 
       
     </div>
     <footer>
       
         
-          <div class="alignleft">
-            <a href="/2014/01/13/配置vim语法高亮方案/#more" class="more-link">Read More</a>
-          </div>
+  
+  <div class="categories">
+    <a href="/categories/linux/">linux</a>
+  </div>
+
         
-        
+  
+  <div class="tags">
+    <a href="/tags/vim/">vim</a>
+  </div>
+
+        <!--%- partial('post/share') %-->
+        <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_fbook" data-cmd="fbook" title="Share to Facebook"></a><a href="#" class="bds_twi" data-cmd="twi" title="Share to Twitter"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{},"image":{"viewList":["fbook","twi","weixin","tsina","tqq","renren"],"viewText":"Share it to :","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["fbook","twi","weixin","tsina","tqq","renren"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89343201.js?cdnversion='+~(-new Date()/36e5)];</script>
       
       <div class="clearfix"></div>
     </footer>
@@ -247,105 +296,39 @@
 </article>
 
 
-  
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2014-01-12T10:26:09.000Z"><a href="/2014/01/12/README/">2014-01-12</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2014/01/12/README/">README</a></h1>
-  
+<section id="comment">
 
-    </header>
-    <div class="entry">
-      
-        <p>无论如何，算是在Github上把这个博客建起来了。</p>
-<p>建这个博客的起因说来也简单：无论在会社还是在家中都需要用到一些相同的配置文件来配置我的Linux环境；在配置环境过程中因Linux发行版本不同遇到了一些问题，并搜索到一些解决方法。想在一个能方便存取文件、存阅Know How的网站上共享这些信息，就想到了Github这个Programmer之圣地，于是便搜出来好多关于在Github上建立Blog的相关内容。<br>最后选定了台胞开发的简便优雅的轻量级博客<a href="https://github.com/tommy351/hexo" target="_blank">Hexo</a>。Hexo可以便捷地建立静态博客，还能把博客挂载到Github上。这样既能在Github上共享配置文件，又能收藏一些有用的文章，一举两得哦。<br>
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2014/01/12/README/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
+  <h1 class="title">留言</h1>
+<!-- Duoshuo Comment BEGIN -->
+  <div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"godriccao"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- Duoshuo Comment END -->
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
 
-
-  
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2014-01-12T08:32:53.000Z"><a href="/2014/01/12/hello-world/">2014-01-12</a></time>
-      
+<div class="fb-comments" data-href="http://www.godriccao.com/2014/01/13/配置vim语法高亮方案/" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
       
   
-    <h1 class="title"><a href="/2014/01/12/hello-world/">Hello World</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>Welcome to <a href="http://zespia.tw/hexo" target="_blank">Hexo</a>!  Check <a href="http://zespia.tw/hexo/docs" target="_blank">documentation</a> to learn how to use.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-  
-
-  <nav id="pagination">
-  
-  
-  <div class="clearfix"></div>
-</nav>
+</section>
 </div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
