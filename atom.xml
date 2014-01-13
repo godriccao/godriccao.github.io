@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Weaving self, weaving future.]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://godriccao.com/"/>
-  <updated>2014-01-13T11:22:59.136Z</updated>
+  <updated>2014-01-13T13:16:57.016Z</updated>
   <id>http://godriccao.com/</id>
   
   <author>
@@ -19,8 +19,8 @@
     <link href="http://godriccao.com/2014/01/13/%E9%85%8D%E7%BD%AEvim%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE%E6%96%B9%E6%A1%88/"/>
     <id>http://godriccao.com/2014/01/13/配置vim语法高亮方案/</id>
     <published>2014-01-13T07:32:16.000Z</published>
-    <updated>2014-01-13T09:11:24.000Z</updated>
-    <content type="html"><![CDATA[<p>以Sublime&nbsp;Text作为文本编辑器时，发现monokai这个语法高亮的配色方案很赞，于是就想在vim中也使用<a href="https://github.com/lsdr/monokai" target="_blank">monokai</a>。<br>但是monokai无论如何都无法在Terminal中的vim上显示。于是发现了跟monokai配色风格接近的配色方案<a href="https://github.com/tomasr/molokai" target="_blank">molokai.vim</a>。一通搜索加捣鼓之后，总算能在Terminal中有一个赏心悦目的vim配色了。    </p>
+    <updated>2014-01-13T13:16:24.000Z</updated>
+    <content type="html"><![CDATA[<p>以Sublime&nbsp;Text作为文本编辑器时，发现monokai这个语法高亮的配色方案很赞，于是就想在vim中也使用<a href="https://github.com/lsdr/monokai" target="_blank">monokai</a>。<br>但是monokai无论如何都无法在Terminal中的vim上显示。于是发现了跟monokai配色风格接近的配色方案<a href="https://github.com/tomasr/molokai" target="_blank">molokai.vim</a>。一通搜索加捣鼓之后，总算能在Terminal中有一个赏心悦目的vim配色了。<br>本文将介绍ubuntu下vim采用molokai配色的设置方法。</p>
 <p><img src="https://github-camo.global.ssl.fastly.net/47bf6f7773c282e9607fc692e3a0948ee9363b6e/687474703a2f2f7777772e77696e746572646f6d2e636f6d2f7765626c6f672f636f6e74656e742f62696e6172792f57696e646f77734c6976655772697465722f4d6f6c6f6b6169666f7256696d5f383630322f6d6f6c6f6b61695f6e6f726d616c5f736d616c6c5f332e706e67" alt="molokai1">    </p>
 <a id="more"></a>
 
@@ -66,7 +66,7 @@ colorscheme molokai
 <hr>
 <p>参考链接 <a href="http://whiletruecode.tumblr.com/post/13358288098/enabling-256-color-mode-in-ubuntus-bash-terminal" target="_blank">Enabling 256 color mode in Ubuntu’s Bash terminal</a></p>
 ]]></content>
-    <summary type="html"><![CDATA[<p>以Sublime&nbsp;Text作为文本编辑器时，发现monokai这个语法高亮的配色方案很赞，于是就想在vim中也使用<a href="https://github.com/lsdr/monokai" target="_blank">monokai</a>。<br>但是monokai无论如何都无法在Terminal中的vim上显示。于是发现了跟monokai配色风格接近的配色方案<a href="https://github.com/tomasr/molokai" target="_blank">molokai.vim</a>。一通搜索加捣鼓之后，总算能在Terminal中有一个赏心悦目的vim配色了。    </p>
+    <summary type="html"><![CDATA[<p>以Sublime&nbsp;Text作为文本编辑器时，发现monokai这个语法高亮的配色方案很赞，于是就想在vim中也使用<a href="https://github.com/lsdr/monokai" target="_blank">monokai</a>。<br>但是monokai无论如何都无法在Terminal中的vim上显示。于是发现了跟monokai配色风格接近的配色方案<a href="https://github.com/tomasr/molokai" target="_blank">molokai.vim</a>。一通搜索加捣鼓之后，总算能在Terminal中有一个赏心悦目的vim配色了。<br>本文将介绍ubuntu下vim采用molokai配色的设置方法。</p>
 <p><img src="https://github-camo.global.ssl.fastly.net/47bf6f7773c282e9607fc692e3a0948ee9363b6e/687474703a2f2f7777772e77696e746572646f6d2e636f6d2f7765626c6f672f636f6e74656e742f62696e6172792f57696e646f77734c6976655772697465722f4d6f6c6f6b6169666f7256696d5f383630322f6d6f6c6f6b61695f6e6f726d616c5f736d616c6c5f332e706e67" alt="molokai1">    </p>
 ]]></summary>
     
