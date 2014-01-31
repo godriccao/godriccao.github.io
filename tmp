@@ -1,0 +1,5 @@
+The C Programming Language
+
+P.42
+"Definition" refers to the place where the variable is created or assigned storage;
+"declaration" refers to places where the nature of the variable is stated but no storage is allocated.
